@@ -1,0 +1,43 @@
+class AppStrings {
+  static const String appTitle = 'Chef App';
+  static const String welcome = 'Welcome to Chef App';
+  static const String chooseLang = 'Please choose your language';
+  static const String english = 'English';
+  static const String arabic = 'العربية';
+  static const String welcomeBck = 'Welcome Back';
+  static const String email = 'E-mail';
+  static const String password = 'Password';
+  static const String signin = 'Sign in';
+  static const String forgetPass = 'forget password ?';
+  static const String signup = 'Don’t have an account? Sign Up';
+  static const String sendCode_title = 'Forget Password';
+  static const String sendcode_txt =
+      'Enter Your mail and we will send you code to rest your password';
+  static const String sendcode = 'Send Code';
+  static const String resetPass_title = 'Create New Password ';
+  static const String createNewpass = 'Create new password';
+  static const String newpass = 'New password';
+  static const String confirmPass = 'Confirm Password';
+  static const String code = 'Code';
+  static const String resetPass = 'Reset Password';
+  static const String editProfil = 'Edit Profile';
+  static const String setting = 'Settings';
+  static const String logout = 'Logout';
+  static const String name = 'Name';
+  static const String phone = 'Phone';
+  static const String brand = 'Brand Name';
+  static const String charge = 'Minimum Charge';
+  static const String description = 'Description';
+  static const String location = 'Location';
+  static const String update = 'Update';
+  static const String changePass = 'Change Password';
+  static const String oldPass = 'Old password';
+  static const String newPass = 'New password';
+  static const String confirm_newPass = 'Confirm New password';
+  static const String addMeal = 'Add Meal';
+  static const String menu = 'Menu';
+  static const String price = 'Price';
+  static const String Category = 'Category';
+  static const String number = 'Number';
+  static const String quanity = 'Quantity';
+}
