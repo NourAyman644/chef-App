@@ -2,6 +2,7 @@ import 'package:chef_app/core/utils/App_assets.dart';
 import 'package:chef_app/core/utils/App_colors.dart';
 import 'package:chef_app/core/utils/App_strings.dart';
 import 'package:chef_app/core/utils/commons/commons.dart';
+import 'package:chef_app/core/weigths/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -37,10 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            CustomImage(
+              img_path: AppAssets.AppLogo,
               width: 120.w,
               height: 120.h,
-              child: Image.asset(AppAssets.AppLogo),
             ),
             SizedBox(
               height: 16.h,
