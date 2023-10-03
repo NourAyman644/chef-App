@@ -1,3 +1,4 @@
+import 'package:chef_app/features/auth/presentation/screens/change_lang.dart';
 import 'package:chef_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:chef_app/features/auth/presentation/screens/reset_password.dart';
 import 'package:chef_app/features/auth/presentation/screens/send_code.dart';
@@ -22,6 +23,7 @@ class Routes {
   static const String updateProfile = '/updateProfile';
   static const String setting = '/setting';
   static const String changePassword = '/changePassword';
+  static const String changeLang = '/changeLang';
 }
 
 class AppRoutes {
@@ -48,6 +50,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SettingScreen());
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePassword());
+      case Routes.changeLang:
+        return MaterialPageRoute(builder: (_) => const ChangeLang());
+
       default:
         return MaterialPageRoute(
             builder: (_) => const Scaffold(
