@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import '../core/locale/app_locale.dart';
 import '../core/routes/app_routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import '../core/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,6 +14,17 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MaterialApp(
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            AppLocalizations.delegate,
+          ],
+          supportedLocales: [
+            Locale('ar', "EG"),
+            Locale('en', "US"),
+          ],
+          locale: Locale('ar'),
           debugShowCheckedModeBanner: false,
           theme: getTheme(),
           initialRoute: Routes.initilRoute,

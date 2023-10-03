@@ -1,3 +1,4 @@
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/App_assets.dart';
 import 'package:chef_app/core/utils/App_colors.dart';
 import 'package:chef_app/core/utils/App_strings.dart';
@@ -47,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 16.h,
             ),
             Text(
-              AppStrings.appTitle,
+              AppStrings.chefApp.tr(context),
               style: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontSize: 36,
                     color: AppColors.txt_black,

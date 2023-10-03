@@ -1,3 +1,4 @@
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/App_colors.dart';
 import 'package:chef_app/core/utils/App_strings.dart';
 import 'package:chef_app/core/weigths/custom_elvated_btn.dart';
@@ -34,7 +35,7 @@ class ChangeLang extends StatelessWidget {
                   height: 16.h,
                 ),
                 Text(
-                  AppStrings.welcome,
+                  AppStrings.welcomeToChefApp.tr(context),
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         color: AppColors.txt_black,
                         fontSize: 32.sp,
@@ -44,7 +45,7 @@ class ChangeLang extends StatelessWidget {
                   height: 54.h,
                 ),
                 Text(
-                  AppStrings.chooseLang,
+                  AppStrings.pleaseChooseYourLanguage.tr(context),
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: AppColors.txt_black,
                       ),
