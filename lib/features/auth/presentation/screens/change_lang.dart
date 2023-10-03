@@ -4,7 +4,10 @@ import 'package:chef_app/core/utils/App_strings.dart';
 import 'package:chef_app/core/weigths/custom_elvated_btn.dart';
 import 'package:chef_app/core/weigths/custom_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/bloc/global_cubit.dart';
+import '../../../../core/bloc/global_state.dart';
 import '../../../../core/utils/App_assets.dart';
 
 class ChangeLang extends StatelessWidget {
@@ -53,25 +56,32 @@ class ChangeLang extends StatelessWidget {
                 SizedBox(
                   height: 120.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomElvatedBtn(
-                      text: AppStrings.english,
-                      height: 48,
-                      width: 140,
-                      onpressed: () {},
-                      color: AppColors.bg_black,
-                    ),
-                    CustomElvatedBtn(
-                      text: AppStrings.arabic,
-                      height: 48,
-                      width: 140,
-                      onpressed: () {},
-                      color: AppColors.bg_black,
-                    ),
-                  ],
-                )
+                BlocBuilder<GlobalCubit, GlobalState>(
+                    builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CustomElvatedBtn(
+                        text: AppStrings.english,
+                        height: 48,
+                        width: 140,
+                        onpressed: () {
+                          BlocProvider.of<GlobalCubit>(context).changLang();
+                        },
+                        color: AppColors.bg_black,
+                      ),
+                      CustomElvatedBtn(
+                        text: AppStrings.arabic,
+                        height: 48,
+                        width: 140,
+                        onpressed: () {
+                          BlocProvider.of<GlobalCubit>(context).changLang();
+                        },
+                        color: AppColors.bg_black,
+                      ),
+                    ],
+                  );
+                })
               ],
             ),
           )
