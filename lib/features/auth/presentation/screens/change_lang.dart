@@ -66,7 +66,7 @@ class ChangeLang extends StatelessWidget {
                         height: 48,
                         width: 140,
                         onpressed: () {
-                          BlocProvider.of<GlobalCubit>(context).changLang();
+                          BlocProvider.of<GlobalCubit>(context).changLang('en');
                         },
                         color: AppColors.bg_black,
                       ),
@@ -75,7 +75,7 @@ class ChangeLang extends StatelessWidget {
                         height: 48,
                         width: 140,
                         onpressed: () {
-                          BlocProvider.of<GlobalCubit>(context).changLang();
+                          BlocProvider.of<GlobalCubit>(context).changLang('ar');
                         },
                         color: AppColors.bg_black,
                       ),

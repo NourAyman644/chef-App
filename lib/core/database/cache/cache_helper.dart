@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+//CacheHelper That's Connect and Talk to local database.
 
 class CacheHelper {
   late SharedPreferences sharedPreferences;
@@ -65,5 +66,20 @@ class CacheHelper {
     } else {
       return await sharedPreferences.setInt(key, value);
     }
+  }
+
+  final String _cachedCode = "cachedCode";
+
+  String getCachedLanguage() {
+    final code = sharedPreferences.getString(_cachedCode);
+    if (code != null) {
+      return code;
+    } else {
+      return 'ar';
+    }
+  }
+
+  Future<void> cacheLanguage(String code) async {
+    await sharedPreferences.setString(_cachedCode, code);
   }
 }
