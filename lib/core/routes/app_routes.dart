@@ -31,7 +31,7 @@ class AppRoutes {
     // if(routeSettings.name==Routes.addMeal) return MaterialPageRoute(builder: (_)=>AddMeals());
     switch (routeSettings.name) {
       case Routes.initilRoute:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.sendCode:

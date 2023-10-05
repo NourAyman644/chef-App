@@ -7,6 +7,7 @@ class AppStrings {
   static const String camera = 'camera';
   static const String writeHere = 'writeHere';
   static const String signIn = 'sign_in';
+  static const String dontHaveAccount = "dontHaveAccount";
   static const String signUp = 'sign_up';
   static const String createAccount = 'createAccount';
   static const String email = 'email';
