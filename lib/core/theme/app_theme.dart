@@ -22,7 +22,10 @@ ThemeData getTheme() {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: boldStyle(color: AppColors.textfield, fontSize: 16.sp),
+      hintStyle: boldStyle(
+        color: AppColors.textfield,
+        fontSize: 16.sp,
+      ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(
@@ -39,6 +42,13 @@ ThemeData getTheme() {
       ),
       suffixIconColor: AppColors.textfield,
       focusColor: AppColors.textfield,
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(
+          color: AppColors.textfield,
+          width: 2.w,
+        ),
+      ),
     ),
   );
 }

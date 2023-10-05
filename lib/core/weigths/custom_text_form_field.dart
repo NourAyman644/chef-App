@@ -5,8 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     Key? key,
-    this.height = 48,
-    this.width = double.infinity,
     required this.hint,
     this.LabelText,
     required this.controller,
@@ -15,8 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.icon,
     this.sufixIconOnpressed,
   }) : super(key: key);
-  final double height;
-  final double width;
+
   final String hint;
   final TextStyle? LabelText;
   final TextEditingController controller;
@@ -27,20 +24,21 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height.h,
-      width: width.w,
-      child: TextFormField(
-        controller: controller,
-        obscureText: isPassword,
-        validator: valid,
-        cursorColor: AppColors.primaryColor,
-        decoration: InputDecoration(
-            hintText: hint,
-            suffixIcon: IconButton(
-              onPressed: sufixIconOnpressed,
-              icon: Icon(icon),
-            )),
+    return TextFormField(
+      controller: controller,
+      obscureText: isPassword,
+      validator: valid,
+      cursorColor: AppColors.primaryColor,
+      decoration: InputDecoration(
+        hintText: hint,
+        contentPadding: const EdgeInsets.all(16),
+        suffixIcon: IconButton(
+          onPressed: sufixIconOnpressed,
+          icon: Icon(
+            icon,
+            color: AppColors.primaryColor,
+          ),
+        ),
       ),
     );
   }
