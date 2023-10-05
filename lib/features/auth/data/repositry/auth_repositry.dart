@@ -13,7 +13,7 @@ class AuthRepository {
     try {
       final respone = await sl<ApiConsumer>().post(
         EndPoints.chefSignin,
-        data: {ApiKeys.email: 'email', ApiKeys.password: 'password'},
+        data: {ApiKeys.email: email, ApiKeys.password: password},
       );
       return Right(LoginModel.fromJson(respone));
     } on ServerException catch (error) {

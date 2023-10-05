@@ -12,8 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/app_routes.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
     Key? key,
@@ -43,119 +41,122 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 child: Form(
                   key: BlocProvider.of<LoginCubit>(context).loginKey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 92.h,
-                      ),
-                      Center(
-                        child: Text(
-                          AppStrings.welcomeBack.tr(context),
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
-                              .copyWith(
-                                fontSize: 32.sp,
-                                color: AppColors.white,
-                              ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 92.h,
                         ),
-                      ),
-                      SizedBox(
-                        height: 195.h,
-                      ),
-                      CustomTextFormField(
-                        controller: BlocProvider.of<LoginCubit>(context)
-                            .emailController,
-                        hint: AppStrings.email.tr(context),
-                        valid: (data) {
-                          if (data!.isEmpty || !data.contains('@gmail.com')) {
-                            return AppStrings.pleaseEnterValidEmail.tr(context);
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 32.h,
-                      ),
-                      CustomTextFormField(
-                        controller: BlocProvider.of<LoginCubit>(context)
-                            .PasswordController,
-                        isPassword: BlocProvider.of<LoginCubit>(context)
-                            .isLoignPasswordShowing,
-                        hint: AppStrings.password.tr(context),
-                        icon: BlocProvider.of<LoginCubit>(context).suffixIcon,
-                        sufixIconOnpressed: () {
-                          BlocProvider.of<LoginCubit>(context)
-                              .changePasswordSuffixicon();
-                        },
-                        valid: (data) {
-                          if (data!.length < 6) {
-                            return AppStrings.pleaseEnterValidPassword
-                                .tr(context);
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            AppStrings.forgetPassword.tr(context),
+                        Center(
+                          child: Text(
+                            AppStrings.welcomeBack.tr(context),
                             style: Theme.of(context)
                                 .textTheme
                                 .displayLarge!
                                 .copyWith(
-                                  fontSize: 16.sp,
-                                  color: AppColors.textColor,
+                                  fontSize: 32.sp,
+                                  color: AppColors.white,
                                 ),
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 64.h,
-                      ),
-                      CustomElvatedBtn(
-                          text: AppStrings.signIn.tr(context),
-                          onpressed: () {
-                            if (BlocProvider.of<LoginCubit>(context)
-                                .loginKey
-                                .currentState!
-                                .validate()) {
-                              print('login');
+                        ),
+                        SizedBox(
+                          height: 195.h,
+                        ),
+                        CustomTextFormField(
+                          controller: BlocProvider.of<LoginCubit>(context)
+                              .emailController,
+                          hint: AppStrings.email.tr(context),
+                          valid: (data) {
+                            if (data!.isEmpty || !data.contains('@gmail.com')) {
+                              return AppStrings.pleaseEnterValidEmail
+                                  .tr(context);
                             }
-                            // Navigator.pushNamed(context, Routes.login);
-                          }),
-                      SizedBox(
-                        height: 72.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            AppStrings.dontHaveAccount.tr(context),
-                            style: Theme.of(context)
-                                .textTheme
-                                .displayMedium!
-                                .copyWith(
-                                  fontSize: 16.sp,
-                                  color: AppColors.softGrey,
-                                ),
-                          ),
-                          Text(
-                            AppStrings.signUp.tr(context),
-                            style: Theme.of(context)
-                                .textTheme
-                                .displayMedium!
-                                .copyWith(
-                                  fontSize: 16.sp,
-                                  color: AppColors.primaryColor,
-                                ),
-                          ),
-                        ],
-                      )
-                    ],
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 32.h,
+                        ),
+                        CustomTextFormField(
+                          controller: BlocProvider.of<LoginCubit>(context)
+                              .passwordController,
+                          isPassword: BlocProvider.of<LoginCubit>(context)
+                              .isLoginPasswordShowing,
+                          hint: AppStrings.password.tr(context),
+                          icon: BlocProvider.of<LoginCubit>(context).suffixIcon,
+                          sufixIconOnpressed: () {
+                            BlocProvider.of<LoginCubit>(context)
+                                .changeLoginPasswordSuffixIcon();
+                          },
+                          valid: (data) {
+                            if (data!.length < 6) {
+                              return AppStrings.pleaseEnterValidPassword
+                                  .tr(context);
+                            }
+                            return null;
+                          },
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              AppStrings.forgetPassword.tr(context),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge!
+                                  .copyWith(
+                                    fontSize: 16.sp,
+                                    color: AppColors.textColor,
+                                  ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 64.h,
+                        ),
+                        CustomElvatedBtn(
+                            text: AppStrings.signIn.tr(context),
+                            onpressed: () {
+                              if (BlocProvider.of<LoginCubit>(context)
+                                  .loginKey
+                                  .currentState!
+                                  .validate()) {
+                                BlocProvider.of<LoginCubit>(context).login();
+                              }
+                              // Navigator.pushNamed(context, Routes.login);
+                            }),
+                        SizedBox(
+                          height: 72.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              AppStrings.dontHaveAccount.tr(context),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayMedium!
+                                  .copyWith(
+                                    fontSize: 16.sp,
+                                    color: AppColors.softGrey,
+                                  ),
+                            ),
+                            Text(
+                              AppStrings.signUp.tr(context),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayMedium!
+                                  .copyWith(
+                                    fontSize: 16.sp,
+                                    color: AppColors.primaryColor,
+                                  ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               );
