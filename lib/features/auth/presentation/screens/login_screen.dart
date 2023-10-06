@@ -2,6 +2,7 @@ import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/App_assets.dart';
 import 'package:chef_app/core/utils/App_colors.dart';
 import 'package:chef_app/core/utils/App_strings.dart';
+import 'package:chef_app/core/utils/commons/commons.dart';
 import 'package:chef_app/core/weigths/custom_elvated_btn.dart';
 import 'package:chef_app/core/weigths/custom_image.dart';
 import 'package:chef_app/core/weigths/custom_loading_incdicator.dart';
@@ -37,6 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
           BlocConsumer<LoginCubit, LoginState>(
             listener: (context, state) {
               // TODO: implement listener
+              if (state is LoginSucessState) {
+                showToast(
+                    message: AppStrings.loginSucessfully.tr(context),
+                    state: ToastStates.success);
+              }
+              if (state is LoginErrorState) {
+                showToast(message: state.message, state: ToastStates.error);
+              }
             },
             builder: (context, state) {
               return Padding(
