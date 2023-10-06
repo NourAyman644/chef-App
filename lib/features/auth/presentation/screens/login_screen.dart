@@ -4,6 +4,7 @@ import 'package:chef_app/core/utils/App_colors.dart';
 import 'package:chef_app/core/utils/App_strings.dart';
 import 'package:chef_app/core/weigths/custom_elvated_btn.dart';
 import 'package:chef_app/core/weigths/custom_image.dart';
+import 'package:chef_app/core/weigths/custom_loading_incdicator.dart';
 import 'package:chef_app/core/weigths/custom_text_form_field.dart';
 import 'package:chef_app/features/auth/presentation/cubit/login_cubit.dart';
 import 'package:chef_app/features/auth/presentation/cubit/login_state.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -116,17 +118,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 64.h,
                         ),
-                        CustomElvatedBtn(
-                            text: AppStrings.signIn.tr(context),
-                            onpressed: () {
-                              if (BlocProvider.of<LoginCubit>(context)
-                                  .loginKey
-                                  .currentState!
-                                  .validate()) {
-                                BlocProvider.of<LoginCubit>(context).login();
-                              }
-                              // Navigator.pushNamed(context, Routes.login);
-                            }),
+                        state is LoginLoadingState
+                            ? const CustomLoadingIncdicator()
+                            : CustomElvatedBtn(
+                                text: AppStrings.signIn.tr(context),
+                                onpressed: () {
+                                  if (BlocProvider.of<LoginCubit>(context)
+                                      .loginKey
+                                      .currentState!
+                                      .validate()) {
+                                    BlocProvider.of<LoginCubit>(context)
+                                        .login();
+                                  }
+                                  // Navigator.pushNamed(context, Routes.login);
+                                }),
                         SizedBox(
                           height: 72.h,
                         ),
